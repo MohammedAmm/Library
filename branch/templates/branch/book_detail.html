@@ -1,0 +1,31 @@
+{% extends '../layout.html' %}
+{% block title %}{{ book }}{% endblock %}
+{% block content %}
+
+    <div id="templatemo_content">	
+        <div id="templatemo_content_special">
+
+                <div class="templatemo_product_box">
+                    <h1>{{ book }}<a href="{{book.writer.get_absolute_url}}"><span style="font-size:22px;">&nbsp;&nbsp;&nbsp;by {{book.writer}}</span></a></h1>
+                    {% load static %}
+                    {% if book.book_img %}
+                     <img width=250 height=450 src="{{book.book_img.url}}" alt="image" />
+                    {% endif %}
+                    <span style="font-size:24px;color:#969547">Published_at :</span><span style="font-size:20px;"color:#969547>{{book.published_date}}</span> <br>
+                    <br><br><br><br>
+                    <span style="font-size:24px;color:#969547">Summary :</span>
+                    <br>
+                    <br>                    
+                    <p>&nbsp;&nbsp;&nbsp;{{book.summary}}</p>
+                    <br><br><br><br>
+                    <br><br><br><br>
+                    <span style="font-size:24px;color:#969547">Wikipedia :</span>
+                    
+                    <a href="{{book.link}}" style="font-size:22px;">{{book.title}}</a>
+                    
+                    <div class="cleaner">&nbsp;</div>
+                </div>
+                <div class="cleaner_with_width">&nbsp;</div>
+            </div> <!-- end of content right -->
+        
+{% endblock %}
