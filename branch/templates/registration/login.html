@@ -10,16 +10,7 @@
   <form method="post">
     {% csrf_token %}
     <div style="color:red;font-size:16px;">
-      <ul> 
-        {%for error in form.errors%}
-          <li>
-              {{error.detail}}
-          </li>
-        {%endfor%}
-
-      </ul>
-       
-          
+      {{form.erros}}
     </div>
     
 		<p>
