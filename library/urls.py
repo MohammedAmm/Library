@@ -30,12 +30,12 @@ login_forbidden = user_passes_test(lambda u: u.is_anonymous,'/branch/index')
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('branch/', include('branch.urls')),
-    path('', RedirectView.as_view(url='/branch/')),
-    path('accounts/', include('django.contrib.auth.urls')),
+    # path('accounts/', include('django.contrib.auth.urls')),    
+    path('',RedirectView.as_view(url='/branch/'), name='home',kwargs={'redirect_authenticated_user': True}),
+    path('login/', auth_views.login,name='login',kwargs={'redirect_authenticated_user': True}),
     path('signup/', login_forbidden(views.SignUp.as_view()), name='signup'),
-
+    path('logout/', auth_views.logout,{'next_page': '/login/'},name='logout'),
 ]
-
 
 if settings.DEBUG:
      urlpatterns += static(settings.MEDIA_URL,document_root=settings.MEDIA_ROOT)
