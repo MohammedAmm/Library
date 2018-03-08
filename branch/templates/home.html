@@ -1,4 +1,5 @@
-{% extends 'base.html' %}
+<!-- templates/home.html-->
+{% extends 'layout.html' %}
 
 {% block title %}Home{% endblock %}
 
@@ -11,3 +12,38 @@
   <a href="{% url 'login' %}">login</a>
 {% endif %}
 {% endblock %}
+
+    <div id="templatemo_header">
+    	<div id="templatemo_special_offers">
+        	<p>
+              Opportunity to win aprize if you read more ^_^
+        	</p>
+        </div>
+        
+        
+        <div id="templatemo_new_books">
+        	<ul>
+                
+            </ul>
+        </div>
+    </div> <!-- end of header -->
+    
+    <div id="templatemo_content">
+    	
+        <div id="templatemo_content_left">
+			<div class="templatemo_content_left_section">
+            	<h1>Book Author</h1>
+                <ul>
+                    <li><a href="#">Naguib Mahfouz</a></li>
+                    <li><a href="#">Youssef Shahine</a></li>
+                    <li><a href="#">Agatha Christie</a></li>
+                    <li><a href="#">Mark Twain</a></li>
+                    <li><a href="#">   ...  </a></li>
+                    <li><a href="#">   ...  </a></li>
+                    <li><a href="#">   ...  </a></li>
+                    <li><a href="#">   ...  </a></li>
+                    <li><a href="#" >   ...  </a></li>
+                    <li><a href="#">   ...  </a></li>
+            	</ul>
+            </div>
+        </div> <!-- end of content left -->
