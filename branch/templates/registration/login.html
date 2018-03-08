@@ -1,12 +1,43 @@
-{% extends 'base.html' %}
-
-{% block title %}Login{% endblock %}
+<!-- templates/signup.html -->
+{% extends '../base.html' %}
+{% block cssfiles %}
+  {% load static %}
+  <link href="../../media/{% static "style.css" %}" rel="stylesheet" type="text/css" />
+{% endblock %}
+{% block title %}Sign In{% endblock %}
 
 {% block content %}
-<h2>Login</h2>
-<form method="post">
-  {% csrf_token %}
-  {{ form.as_p }}
-  <button type="submit">Login</button>
-</form>
+  <form method="post">
+    {% csrf_token %}
+    <div style="color:red;font-size:16px;">
+      <ul> 
+        {%for error in form.errors%}
+          <li>
+              {{error.detail}}
+          </li>
+        {%endfor%}
+
+      </ul>
+       
+          
+    </div>
+    
+		<p>
+			<label for="username" class="floatLabel">Username</label>
+			<input id="username" name="username" type="text">
+		</p>
+		<p>
+			<label for="password" class="floatLabel">Password</label>
+			<input id="password" name="password" type="password">
+			<span>Enter a password longer than 8 characters</span>
+    </p>
+    
+		<p>
+        <button type="submit" id="submit2" >Login</button>
+      </p>
+    <a href="{% url 'signup' %}">Sign up</a>
+  </form>
+{% endblock %}
+{% block jsfiles %}    <script  src="../../media/{% static "jquery.min.js" %}"></script>
+<script  src="../../media/{% static "index.js" %}"></script>
 {% endblock %}
